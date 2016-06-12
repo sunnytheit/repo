@@ -1,6 +1,10 @@
+//Project to convert any number between -9,999,999 and 9,999,999 to its string values
+//Works with command line argument
+
 public class NumSpeller {
 			private static boolean isNeg = false;
 			
+			//Number values of chars
 			public static String charOf(char a) {
 				if(a == 48) return "";
 				if(a == 49) return "one";
@@ -15,6 +19,7 @@ public class NumSpeller {
 				
 				return null;
 			}
+			//Number values of chars
 			public static String charOfTwo(char a) {
 				if(a == 48) return "";
 				if(a == 49) return "ten";
@@ -30,6 +35,8 @@ public class NumSpeller {
 				return null;
 			}
 			
+			//Function to check if a number is negative
+			// If negative creates a positive of the exact number
 			public static String negCheck(String x)  {
 				if(45 == x.charAt(0) ) {
 					String newx = x.substring(1);
@@ -49,7 +56,7 @@ public class NumSpeller {
 				
 				
 				
-				
+				// Checks each index of the input and puts according writing
 				for(int i = 0; i < x.length(); i++) {
 					if ( x.length() - i == 1) {
 						result = "  " + result + "  " + charOf(x.charAt(i));
@@ -104,7 +111,9 @@ public class NumSpeller {
 						}
 					}
 				}
-				
+		
+		
+		//If the input was negative 		
 		if (isNeg) {
 			result = "negative" + result; 
 			
