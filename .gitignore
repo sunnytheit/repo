@@ -1,0 +1,116 @@
+public class NumSpeller {
+			private static boolean isNeg = false;
+			
+			public static String charOf(char a) {
+				if(a == 48) return "";
+				if(a == 49) return "one";
+				if(a == 50) return "two";
+				if(a == 51) return "three";
+				if(a == 52) return "four";
+				if(a == 53) return "five";
+				if(a == 54) return "six";
+				if(a == 55) return "seven";
+				if(a == 56) return "eight";
+				if(a == 57) return "nine";
+				
+				return null;
+			}
+			public static String charOfTwo(char a) {
+				if(a == 48) return "";
+				if(a == 49) return "ten";
+				if(a == 50) return "twenty";
+				if(a == 51) return "thirty";
+				if(a == 52) return "fourty";
+				if(a == 53) return "fifty";
+				if(a == 54) return "sixty";
+				if(a == 55) return "seventy";
+				if(a == 56) return "eighty";
+				if(a == 57) return "ninety";
+				
+				return null;
+			}
+			
+			public static String negCheck(String x)  {
+				if(45 == x.charAt(0) ) {
+					String newx = x.substring(1);
+					isNeg = true;
+					return newx;
+				}
+				
+				return x;
+			}
+		
+			public static void main(String[] args) {
+				String x = args[0];
+				int length = x.length();
+				String result = "";
+				
+				x = negCheck(x);
+				
+				
+				
+				
+				for(int i = 0; i < x.length(); i++) {
+					if ( x.length() - i == 1) {
+						result = "  " + result + "  " + charOf(x.charAt(i));
+					}
+					else if ( x.length() - i == 2) {
+						result = "  " + result +"  " + charOfTwo(x.charAt(i));
+					}
+					
+					else if ( x.length() - i == 3) {
+		               if (x.charAt(i) == 48) {
+							
+						} 
+		               else {
+						result ="  " + result + "  " +charOf(x.charAt(i)) + "  hundred";
+		               }
+					}
+					
+					else if ( x.length() - i == 4) {
+		                 if (x.charAt(i) == 48) {
+							
+						  }
+		                 else {
+						result ="  " +  result + "  " + charOf(x.charAt(i)) + "  thousand";
+		                 }
+					}
+					
+					else if ( x.length() - i == 5) {
+		                if (x.charAt(i) == 48) {
+							
+						  }
+		                else {
+			result = "  " + result +"  " + charOfTwo(x.charAt(i)) ;
+		                  }
+					}
+					
+					else if ( x.length() - i == 6) {
+						
+		                  if (x.charAt(i) == 48) {
+							
+						}
+		                  else {
+						result =  "  " + result + "  " + charOf(x.charAt(i)) + "  hundred";
+					}
+					}
+					
+					else if ( x.length() - i == 7) {
+						if (x.charAt(i) == 48) {
+							
+						}
+						else {
+						result = " " + result + charOf(x.charAt(i)) + "  million";
+						}
+					}
+				}
+				
+		if (isNeg) {
+			result = "negative" + result; 
+			
+		}
+		System.out.println(result);
+			
+			}
+		
+		}
